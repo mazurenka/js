@@ -1,8 +1,25 @@
-const name1 = 'yo';
-const age = 12;
-const isStudent = true
+type TechnologiesType = {
+    id: number,
+    title: string
+}
+type cityType = {
+        title: string
+        countryTitle: string
+}
+type AddressType = {
+    streetTitle: string
+    city: cityType
+}
+type StudentType = {
+    id: number
+    name: string
+    age: number
+    isActive: boolean
+    address: AddressType
+    technologies: Array<TechnologiesType>
+}
 
-const student = {
+const student: StudentType = {
     id: 1,
     name: 'Andre',
     age: 40,
