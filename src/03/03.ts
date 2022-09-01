@@ -1,4 +1,5 @@
 import {student, StudentType} from "../02/02";
+import exp from "constants";
 
 debugger
 export const sum = (a: number, b: number) => {
@@ -21,6 +22,10 @@ export const addSkill = (student: StudentType, skill: string) => {
 
 export const changeActive = (student: StudentType) => {
     student.isActive = true
+}
+
+export const doesStudentlive = (student: StudentType, cityName: string) => {
+    return student.address.city.title === cityName
 }
 
 

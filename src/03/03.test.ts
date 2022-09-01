@@ -1,5 +1,5 @@
 import {StudentType} from "../02/02";
-import {addSkill, changeActive} from "./03";
+import {addSkill, changeActive, doesStudentlive} from "./03";
 
 let student: StudentType
 beforeEach(() => {
@@ -48,4 +48,13 @@ test('student should be made active', () => {
     changeActive(student)
 
     expect(student.isActive).toBe(true)
+})
+
+test('Does student live in city', () => {
+
+    let result1 = doesStudentlive(student, 'Tokyo')
+    let result2 = doesStudentlive(student, 'Texas')
+
+    expect(result1).toBe(false)
+    expect(result2).toBe(true)
 })
