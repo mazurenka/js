@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {sum} from "./01/01";
 
-var a = sum
+var a = sum;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
