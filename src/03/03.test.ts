@@ -1,6 +1,5 @@
 import {StudentType} from "../02/02";
-import {addSkill} from "./03";
-import exp from "constants";
+import {addSkill, changeActive} from "./03";
 
 let student: StudentType
 beforeEach(() => {
@@ -8,7 +7,7 @@ beforeEach(() => {
         id: 1,
         name: 'Andre',
         age: 40,
-        isActive: true,
+        isActive: false,
         address: {
             streetTitle: "JohnWayneSt",
             city: {
@@ -41,4 +40,12 @@ test('new tech skill should be added to student', () => {
     expect(student.technologies.length).toBe(4)
     expect(student.technologies[3].title).toBe("CSS")
     expect(student.technologies[3].id).toBeDefined()
+})
+
+test('student should be made active', () => {
+
+    expect(student.isActive).toBe(false)
+    changeActive(student)
+
+    expect(student.isActive).toBe(true)
 })

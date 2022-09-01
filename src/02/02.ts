@@ -23,7 +23,7 @@ export const student: StudentType = {
     id: 1,
     name: 'Andre',
     age: 40,
-    isActive: true,
+    isActive: false,
     address: {
         streetTitle: "JohnWayneSt",
         city: {

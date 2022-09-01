@@ -1,4 +1,4 @@
-import {StudentType} from "../02/02";
+import {student, StudentType} from "../02/02";
 
 debugger
 export const sum = (a: number, b: number) => {
@@ -17,6 +17,10 @@ export const addSkill = (student: StudentType, skill: string) => {
         id: new Date().getTime(),
         title: skill
     })
+}
+
+export const changeActive = (student: StudentType) => {
+    student.isActive = true
 }
 
 
