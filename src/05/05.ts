@@ -3,7 +3,7 @@ type ManType = {
     age: number
 }
 
-const people: Array<ManType> = [
+export const people: Array<ManType> = [
     {name: 'John Snow', age: 33},
     {name: 'Michael Scoufield', age: 24},
     {name: 'Leon Kennedy', age: 19},
@@ -47,4 +47,6 @@ const devs4 = people.map(man => ({
     firstName: man.name.split(" "[0]),
     lastName: man.name.split(" "[1])
 }))
+
+export let messages = people.map(man => `Hello ${man.name.split(" "[0])}, welcome to Florida!`)
 
