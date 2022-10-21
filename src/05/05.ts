@@ -9,15 +9,15 @@ const people: Array<ManType> = [
     {name: 'Leon Kennedy', age: 19},
 ]
 
-const dimychTransformator = (man:ManType) => {
+const dimychTransformator = (man: ManType) => {
     return {
-        stack:  ["css, html, js, tdd, react"],
+        stack: ["css, html, js, tdd, react"],
         firstName: man.name.split(" "[0]),
         lastName: man.name.split(" "[1])
     }
 }
 
-const devs = [
+const devs1 = [
     {
         stack: ["css, html, js, tdd, react"],
         firstName: "John", lastName: "Snow"
@@ -31,3 +31,20 @@ const devs = [
         firstName: "Leon", lastName: "Kennedy"
     },
 ]
+
+let d1 = dimychTransformator(people[0])
+let d2 = dimychTransformator(people[1])
+let d3 = dimychTransformator(people[2])
+
+const devs2 = [
+    d1, d2, d3
+]
+
+const devs3 = people.map(dimychTransformator)
+
+const devs4 = people.map(man => ({
+    stack: ["css, html, js, tdd, react"],
+    firstName: man.name.split(" "[0]),
+    lastName: man.name.split(" "[1])
+}))
+
