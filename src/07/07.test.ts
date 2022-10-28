@@ -2,7 +2,8 @@
 type LessonsType = {
     title: number
 }
-type ManType = {
+
+export type ManType = {
     name: string
     age: number
     lessons: Array<LessonsType>
@@ -40,11 +41,11 @@ test('', () => {
     //let lessons = props.lessons
     let {age, lessons} = props
 
-    let a = props.age
-    let l = props.lessons
+    /*let a = props.age
+    let l = props.lessons*/
 
     expect(age).toBe(40)
     expect(lessons.length).toBe(2)
-    expect(a).toBe(40)
-    expect(l.length).toBe(2)
+    /*expect(a).toBe(40)*/
+    /*expect(l.length).toBe(2)*/
 })
