@@ -8,13 +8,14 @@ type PropsType = {
 
 export const ManComponent: React.FC<PropsType> = (props) => {
 
-
+    const {title} = props
+    const {name} = props.man
 
     return <div>
-        <h1>{props.title}</h1>
+        <h1>{title}</h1>
         <hr/>
         <div>
-            {props.man.name}
+            {name}
         </div>
     </div>
 }
