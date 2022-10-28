@@ -1,3 +1,33 @@
+
+type LessonsType = {
+    title: number
+}
+type ManType = {
+    name: string
+    age: number
+    lessons: Array<LessonsType>
+    address: {
+        street: {
+            title: string
+        }
+    }
+}
+
+let props: ManType;
+
+beforeEach(() => {
+    props = {
+        name: 'Andre',
+        age: 40,
+        lessons: [{title: 1}, {title: 2}],
+        address: {
+            street: {
+                title: 'New York st'
+            }
+        }
+    }
+})
+
 test('', () => {
 
     let props = {
