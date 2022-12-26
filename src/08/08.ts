@@ -9,7 +9,7 @@ type UsersType = {
     [key: string]: { id: number, name: string }
 }
 
-export const users: UsersType = {
+const users: UsersType = {
     '0': {id: 101, name: 'Dimych'},
     '1': {id: 3232312, name: 'Dimych'},
     '2': {id: 1212, name: 'Dimych'},
@@ -18,6 +18,8 @@ export const users: UsersType = {
 //users[1].id
 var user = {id: 100500, name: 'Igor'}
 users[user.id.toString()] = user
+delete users[user.id]
+users[user.id].name = 'Victor'
 
 export const usersArray = [
     {id: 101, name: 'Dimych'},
@@ -26,4 +28,7 @@ export const usersArray = [
     {id: 1, name: 'Dimych'},
 ]
 
-usersArray.find(u => u.id === 1)
+//usersArray.find(u => u.id === 1)
+//usersArray.push(user)
+//var userCopy = [...usersArray, user]
+//var usersArray = usersArray.filter(u => u.id !== user.id)
