@@ -1,17 +1,23 @@
 type UserType = {
     name: string
     age: number
+    address: {
+        title: string
+    }
 }
 
-function incraseAge(u: UserType) {
-    u.age++ //u.age = u.age + 1
+function incraseAge(user: UserType) {
+    user.age++ //u.age = u.age + 1
 }
 
 test('reference type test', () => {
 
     let user = {
         name: "Andre",
-        age: 15
+        age: 15,
+        address: {
+            title: "NY"
+        }
     }
 
     incraseAge(user)
@@ -55,4 +61,28 @@ test('value type test', () => {
 
     expect(usersCount).toBe(100)
     expect(adminsCount).toBe(101)
+})
+
+test('reference 2 type test', () => {
+
+    let user = {
+        name: "Andre",
+        age: 15,
+        address: {
+            title: "NY"
+        }
+    }
+
+    //let addr = user.address
+
+    let user2 = {
+        name: "Jane",
+        age: 25,
+        address: user.address
+    }
+
+    user2.address.title = "Florida"
+
+    expect(user.address).toBe(user2.address)
+    expect(user.address.title).toBe("Florida")
 })
