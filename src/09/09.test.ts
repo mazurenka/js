@@ -117,3 +117,12 @@ test('reference type array test', () => {
     expect(users[0].name).toBe("Andrew")
 })
 
+test("sort array test", () => {
+
+    const letters = ["c", "d", "a", "z", "e"]
+
+    letters.sort()
+
+    expect(letters).toEqual(["a", "c", "d", "e", "z"])
+})
+
