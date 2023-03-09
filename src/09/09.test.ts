@@ -88,3 +88,32 @@ test('reference 2 type test', () => {
     expect(user.address).toBe(user2.address)
     expect(user.address.title).toBe("Florida")
 })
+
+test('reference type array test', () => {
+
+    let address = {
+        title: "Florida"
+    }
+
+    let user = {
+        name: "Andre",
+        age: 15,
+        address: address
+    }
+
+    let user2 = {
+        name: "Jane",
+        age: 25,
+        address: address
+    }
+
+    let users = [user, user2, {name: "Mary", age: 21, address: address}]
+
+    const admins = [user, user2]
+
+    admins[0].name = "Andrew"
+
+    expect(user.name).toBe("Andrew")
+    expect(users[0].name).toBe("Andrew")
+})
+
