@@ -65,12 +65,14 @@ test('value type test', () => {
 
 test('reference 2 type test', () => {
 
+    let address = {
+        title: "Florida"
+    }
+
     let user = {
         name: "Andre",
         age: 15,
-        address: {
-            title: "NY"
-        }
+        address: address
     }
 
     //let addr = user.address
@@ -78,10 +80,10 @@ test('reference 2 type test', () => {
     let user2 = {
         name: "Jane",
         age: 25,
-        address: user.address
+        address: address
     }
 
-    user2.address.title = "Florida"
+    address.title = "Florida"
 
     expect(user.address).toBe(user2.address)
     expect(user.address.title).toBe("Florida")
