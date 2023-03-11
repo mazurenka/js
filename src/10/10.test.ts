@@ -22,4 +22,21 @@ test("reference type test", () => {
 
     expect(user.hair).toBe(45)
     expect(cutUser.hair).toBe(22.5)
+    expect(cutUser.address).toBe(user.address)
+})
+
+test("change address test", () => {
+    let user: UserType = {
+        name: "Andre",
+        hair: 45,
+        address: {
+            title: "NY"
+        }
+    }
+
+    const cutUser = makeHairstyle(user, 2)
+
+    expect(user.hair).toBe(45)
+    expect(cutUser.hair).toBe(22.5)
+    expect(cutUser.address).toBe(user.address)
 })
