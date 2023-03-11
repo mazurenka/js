@@ -19,6 +19,6 @@ test("reference type test", () => {
 
     const cutUser = hairdresser(user, 2)
 
-    expect(cutUser.hair).toBe(22.5)
     expect(user.hair).toBe(45)
+    expect(cutUser.hair).toBe(22.5)
 })
