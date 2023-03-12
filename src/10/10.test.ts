@@ -1,20 +1,12 @@
-import {UserType} from "./10";
-
-function makeHairstyle(u: UserType, power: number) {
-    const userCopy = {
-        ...u,
-        hair: u.hair / power
-    }
-    //userCopy.hair = u.hair / power
-    return userCopy
-}
+import {makeHairstyle, moveUser, UserType, UserWithLaptopType} from "./10";
 
 test("reference type test", () => {
     let user: UserType = {
         name: "Andre",
         hair: 45,
         address: {
-            title: "NY"
+            city: "NY",
+            house: 10
         }
     }
 
@@ -26,17 +18,22 @@ test("reference type test", () => {
 })
 
 test("change address test", () => {
-    let user: UserType = {
+    let user: UserWithLaptopType = {
         name: "Andre",
         hair: 45,
         address: {
-            title: "NY"
+            city: "NY",
+            house: 15
+        },
+        laptop: {
+            title: "ASUS Rog"
         }
     }
 
-    const cutUser = makeHairstyle(user, 2)
+    const movedUser = moveUser(user, "Florida")
 
-    expect(user.hair).toBe(45)
-    expect(cutUser.hair).toBe(22.5)
-    expect(cutUser.address).toBe(user.address)
+    expect(user).not.toBe(movedUser)
+    expect(user.address).not.toBe(movedUser.address)
+    expect(movedUser.address.city).toBe("Florida")
+    expect(movedUser.laptop).toBe(user.laptop)
 })
