@@ -31,3 +31,13 @@ export function moveUser(u: UserWithLaptopType, city: string) {
     }
     //userCopy.address = {...userCopy.address, city: city}
 }
+
+export function upgradeUserLaptop(u: UserWithLaptopType, laptop: string) {
+    return {
+        ...u,
+        laptop: {
+            ...u.laptop,
+            title: laptop
+        }
+    }
+}
