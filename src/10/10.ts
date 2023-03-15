@@ -44,12 +44,6 @@ export function upgradeUserLaptop(u: UserWithLaptopType, laptop: string) {
 }
 
 export function addNewBooksToUser(u: UserWithLaptopType & UserWithBooksType, newBook: string) {
-    const copy = {
-        ...u,
-        books: [...u.books]
+    return  {...u, books: [...u.books, newBook]
     }
-
-    copy.books.push(newBook)
-
-    return copy
 }
