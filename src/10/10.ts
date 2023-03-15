@@ -44,6 +44,13 @@ export function upgradeUserLaptop(u: UserWithLaptopType, laptop: string) {
 }
 
 export function addNewBooksToUser(u: UserWithLaptopType & UserWithBooksType, newBook: string) {
-    return  {...u, books: [...u.books, newBook]
+    return {
+        ...u, books: [...u.books, newBook]
     }
 }
+
+export const changeBookToUser = (u: UserWithBooksType & UserWithLaptopType,
+                                 oldBook: string,
+                                 newBook: string) => ({
+    ...u, books: u.books.map(b => b === oldBook ? newBook : b)
+})

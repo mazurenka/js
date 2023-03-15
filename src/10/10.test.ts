@@ -1,5 +1,5 @@
 import {
-    addNewBooksToUser,
+    addNewBooksToUser, changeBookToUser,
     makeHairstyle,
     moveUser,
     upgradeUserLaptop,
@@ -89,4 +89,29 @@ test("add new books to user test", () => {
     expect(upgradedUser.books).not.toBe(user.books)
     expect(upgradedUser.books.length).toBe(5)
     expect(user.books.length).toBe(4)
+})
+
+test("change book to user test", () => {
+    let user: UserWithLaptopType & UserWithBooksType = {
+        name: "Andre",
+        hair: 45,
+        address: {
+            city: "NY",
+            house: 15
+        },
+        laptop: {
+            title: "ASUS Rog"
+        },
+        books: ["css", "html", "js", "react"]
+    }
+
+    const upgradedUser = changeBookToUser(user, "js", "ts")
+
+    expect(user).not.toBe(upgradedUser)
+    expect(user.laptop).toBe(upgradedUser.laptop)
+    expect(upgradedUser.address).toBe(user.address)
+    expect(upgradedUser.books).not.toBe(user.books)
+    expect(upgradedUser.books.length).toBe(4)
+    expect(upgradedUser.books[2]).toBe("ts")
+    expect(user.books[2]).toBe("js")
 })
