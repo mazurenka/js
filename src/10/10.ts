@@ -54,3 +54,8 @@ export const changeBookToUser = (u: UserWithBooksType & UserWithLaptopType,
                                  newBook: string) => ({
     ...u, books: u.books.map(b => b === oldBook ? newBook : b)
 })
+
+export const deleteBookOnUser = (u: UserWithBooksType & UserWithLaptopType,
+                                 deleteBook: string) => ({
+    ...u, books: u.books.filter(b => b !== deleteBook)
+})
