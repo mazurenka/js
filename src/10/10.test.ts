@@ -1,4 +1,12 @@
-import {makeHairstyle, moveUser, upgradeUserLaptop, UserType, UserWithLaptopType} from "./10";
+import {
+    addNewBooksToUser,
+    makeHairstyle,
+    moveUser,
+    upgradeUserLaptop,
+    UserType,
+    UserWithBooksType,
+    UserWithLaptopType
+} from "./10";
 
 test("reference type test", () => {
     let user: UserType = {
@@ -57,4 +65,28 @@ test("update laptop to macBook test", () => {
     expect(user.laptop).not.toBe(upgradedUser.laptop)
     expect(upgradedUser.laptop.title).toBe("Macbook")
     expect(upgradedUser.address).toBe(user.address)
+})
+
+test("add new books to user test", () => {
+    let user: UserWithLaptopType & UserWithBooksType = {
+        name: "Andre",
+        hair: 45,
+        address: {
+            city: "NY",
+            house: 15
+        },
+        laptop: {
+            title: "ASUS Rog"
+        },
+        books: ["css", "html", "js", "react"]
+    }
+
+    const upgradedUser = addNewBooksToUser(user, "ts")
+
+    expect(user).not.toBe(upgradedUser)
+    expect(user.laptop).toBe(upgradedUser.laptop)
+    expect(upgradedUser.address).toBe(user.address)
+    expect(upgradedUser.books).not.toBe(user.books)
+    expect(upgradedUser.books.length).toBe(5)
+    expect(user.books.length).toBe(4)
 })
