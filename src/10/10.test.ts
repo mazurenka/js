@@ -1,7 +1,7 @@
 import {
     addNewBooksToUser, changeBookToUser, deleteBookOnUser,
     makeHairstyle,
-    moveUser, updateTitleCompanyToUser,
+    moveUser, updateCompany2, updateTitleCompanyToUser,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
@@ -162,4 +162,18 @@ test("update EvilCorp company to user test", () => {
     expect(upgradedUser.companies).not.toBe(user.companies)
     expect(upgradedUser.companies.length).toBe(2)
     expect(upgradedUser.companies[0].title).toBe("EvilCorp")
+})
+
+test("update company to user test", () => {
+
+    let companies = {
+        "Andre": [{id: 1, title: "Google"}, {id: 2, title: "Apple"}],
+        "Jane": [{id: 1, title: "EvilCorp"}, {id: 2, title: "MicroSoft"}]
+    }
+
+    const copy = updateCompany2(companies, "Andre", 1, "ECorp")
+
+    expect(copy["Andre"]).not.toBe(companies["Andre"])
+    expect(copy["Jane"]).toBe(companies["Jane"])
+    expect(copy["Andre"][0].title).toBe("ECorp")
 })
