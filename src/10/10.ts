@@ -71,3 +71,14 @@ export const updateTitleCompanyToUser = (user: WithCompanyType,
         ? {...c, title: newTitle}
         : c)
 })
+/*{
+    const copy: WithCompanyType = {
+        ...user,
+        companies: user.companies.map(c => {
+            if (c.id === companyId) {
+                return {...c, title: newTitle}
+            } else return c
+        })
+    }
+    return copy
+}*/
