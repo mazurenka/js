@@ -1,11 +1,11 @@
 import {
     addNewBooksToUser, changeBookToUser, deleteBookOnUser,
     makeHairstyle,
-    moveUser,
+    moveUser, updateTitleCompanyToUser,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
-    UserWithLaptopType
+    UserWithLaptopType, WithCompanyType
 } from "./10";
 
 test("reference type test", () => {
@@ -138,4 +138,28 @@ test("delete html book on user test", () => {
     expect(upgradedUser.books).not.toBe(user.books)
     expect(upgradedUser.books.length).toBe(3)
     expect(user.books.length).toBe(4)
+})
+
+test("update EvilCorp company to user test", () => {
+    let user: UserWithLaptopType & WithCompanyType = {
+        name: "Andre",
+        hair: 45,
+        address: {
+            city: "NY",
+            house: 15
+        },
+        laptop: {
+            title: "ASUS Rog"
+        },
+        companies: [{id: 1, title: "Google"}, {id: 2, title: "Apple"}]
+    }
+
+    const upgradedUser = updateTitleCompanyToUser(user, 1, 'EvilCorp') as UserWithLaptopType & WithCompanyType
+
+    expect(user).not.toBe(upgradedUser)
+    expect(user.laptop).toBe(upgradedUser.laptop)
+    expect(upgradedUser.address).toBe(user.address)
+    expect(upgradedUser.companies).not.toBe(user.companies)
+    expect(upgradedUser.companies.length).toBe(2)
+    expect(upgradedUser.companies[0].title).toBe("EvilCorp")
 })
